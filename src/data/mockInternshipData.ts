@@ -1,0 +1,278 @@
+import { Student, Company, TrainingActivity, Advisor } from '../types';
+
+export const standardJobPositions = [
+  'Full Stack Developer',
+  'Frontend Developer',
+  'Backend Developer',
+  'Mobile Application Developer',
+  'DevOps & Cloud Engineer',
+  'QA / Software Tester',
+  'UI/UX Designer',
+  'Graphic Designer',
+  'Data Analyst / Data Engineer',
+  'Network & Security Engineer',
+  'System Analyst (SA)',
+  'IT Support & Infrastructure',
+  'อื่นๆ (ระบุ)'
+];
+
+export const mockAdvisors: Advisor[] = [
+  { id: 'ADV-01', name: 'ผศ.ดร. ธีรพงศ์ สุขใจ', department: 'วิศวกรรมซอฟต์แวร์ (SE)', role: 'อาจารย์ที่ปรึกษา' },
+  { id: 'ADV-02', name: 'ดร. กฤษดา มณีรัตน์', department: 'วิทยาการคอมพิวเตอร์ (CS)', role: 'อาจารย์นิเทศก์', visitingRegion: 'กรุงเทพฯ และปริมณฑล' },
+  { id: 'ADV-03', name: 'อ. วรรณวิมล รัตนพันธุ์', department: 'คอมพิวเตอร์กราฟิกส์ (CG)', role: 'อาจารย์นิเทศก์', visitingRegion: 'ภาคเหนือ/เชียงใหม่' },
+  { id: 'ADV-04', name: 'คุณจอมพล เพชรกล้า (พี่จอม)', department: 'งานบริการการศึกษาและสหกิจศึกษา', role: 'ผู้ดูแลระบบ (พี่จอม)' },
+  { id: 'ADV-05', name: 'ผศ. ดารินทร์ ชัยวงค์', department: 'เทคโนโลยีสารสนเทศ (IT)', role: 'อาจารย์ประจำวิชา' }
+];
+
+export const initialCompanies: Company[] = [
+  {
+    id: 'COMP-01',
+    nameTh: 'บริษัท ซอฟต์สแควร์ 1999 จำกัด',
+    nameEn: 'Soft Square 1999 Co., Ltd.',
+    originalSubmittedNames: ['ซอฟต์สแควร์', 'Soft Square 1999', 'บริษัท ซอฟสแควร์ จำกัด'],
+    address: '99/1 อาคารไอทีทาวเวอร์ ชั้น 15 ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพมหานคร 10210',
+    phone: '02-589-9999',
+    email: 'hr@softsquaregroup.com',
+    contactPerson: 'คุณพิชญา สมบูรณ์ทรัพย์',
+    contactPosition: 'ผู้อำนวยการฝ่ายทรัพยากรบุคคล',
+    isVerified: true,
+    status: 'active',
+    allowedPositions: ['Full Stack Developer', 'Frontend Developer', 'Backend Developer', 'QA / Software Tester']
+  },
+  {
+    id: 'COMP-02',
+    nameTh: 'บริษัท คอมเซเว่น จำกัด (มหาชน) - บานาน่า',
+    nameEn: 'Com7 Public Company Limited (BaNANA)',
+    originalSubmittedNames: ['บานาน่า ไอที', 'Banana', 'ร้าน Banana IT พะเยา'],
+    address: '549/1 ถนนสรรพาวุธ แขวงบางนาใต้ เขตบางนา กรุงเทพมหานคร 10260',
+    phone: '02-017-7777',
+    email: 'career@comseven.com',
+    contactPerson: 'คุณนพรัตน์ แสงเจริญ',
+    contactPosition: 'ผู้จัดการแผนกรับสมัครและฝึกอบรม',
+    isVerified: true,
+    status: 'active',
+    allowedPositions: ['IT Support & Infrastructure', 'Network & Security Engineer', 'Data Analyst / Data Engineer']
+  },
+  {
+    id: 'COMP-03',
+    nameTh: 'บริษัท เทสลา (ประเทศไทย) จำกัด',
+    nameEn: 'Tesla (Thailand) Co., Ltd.',
+    originalSubmittedNames: ['Tesla', 'Tesla Thailand', 'บริษัท เทสล่า ไทยแลนด์'],
+    address: '87/1 อาคารแคปปิตอล ทาวเวอร์ ออล ซีซั่นส์ เพลส ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร 10330',
+    phone: '02-123-4567',
+    email: 'recruitment-th@tesla.com',
+    contactPerson: 'คุณอรรถพล เจริญฤทธิ์',
+    contactPosition: 'Head of Engineering Talent Acquisition',
+    isVerified: true,
+    status: 'active',
+    allowedPositions: ['Full Stack Developer', 'DevOps & Cloud Engineer', 'System Analyst (SA)']
+  },
+  {
+    id: 'COMP-04',
+    nameTh: 'บริษัท ดิจิทัล โนวา ซอฟต์แวร์ จำกัด',
+    nameEn: 'Digital Nova Software Co., Ltd.',
+    originalSubmittedNames: ['Digital Nova', 'ดิจิทัล โนวา เชียงใหม่'],
+    address: '122/4 ถนนนิมมานเหมินท์ ตำบลสุเทพ อำเภอเมือง จังหวัดเชียงใหม่ 50200',
+    phone: '053-998-888',
+    email: 'contact@digitalnova.tech',
+    contactPerson: 'คุณอิทธิพล วรรณศรี',
+    contactPosition: 'Chief Technology Officer (CTO)',
+    isVerified: true,
+    status: 'active',
+    allowedPositions: ['Frontend Developer', 'UI/UX Designer', 'Mobile Application Developer']
+  },
+  {
+    id: 'COMP-DUP-01',
+    nameTh: 'ซอฟต์ สแควร์ อินเตอร์เนชั่นแนล (ส่งซ้ำ)',
+    nameEn: 'Soft Square International',
+    originalSubmittedNames: ['Soft Square Inter', 'ซอฟต์สแควร์ อินเตอร์'],
+    address: 'กรุงเทพมหานคร',
+    phone: '02-589-9999',
+    email: 'hr@softsquaregroup.com',
+    contactPerson: 'คุณพิชญา สมบูรณ์ทรัพย์',
+    contactPosition: 'HR',
+    isVerified: false,
+    status: 'pending_review',
+    allowedPositions: ['Full Stack Developer']
+  },
+  {
+    id: 'COMP-DUP-02',
+    nameTh: 'Banana IT สาขาเชียงใหม่ (ส่งซ้ำ)',
+    nameEn: 'Banana IT Chiang Mai',
+    originalSubmittedNames: ['Banana IT เชียงใหม่', 'บานาน่า เชียงใหม่'],
+    address: 'เซ็นทรัลเฟสติวัล เชียงใหม่',
+    phone: '053-111-222',
+    email: 'store_cm@comseven.com',
+    contactPerson: 'ผู้จัดการสาขา',
+    contactPosition: 'Store Manager',
+    isVerified: false,
+    status: 'pending_review',
+    allowedPositions: ['IT Support & Infrastructure']
+  }
+];
+
+export const initialStudents: Student[] = [
+  {
+    id: '67024964',
+    nameTh: 'นายธวิน วงศ์สุวรรณ',
+    nameEn: 'Mr. Thawin Wongsuwan',
+    faculty: 'คณะเทคโนโลยีสารสนเทศและการสื่อสาร',
+    major: 'วิศวกรรมซอฟต์แวร์ (SE)',
+    curriculum: 'หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิศวกรรมซอฟต์แวร์ (ปรับปรุง พ.ศ. 2564)',
+    phone: '089-123-4567',
+    email: '67024964@up.ac.th',
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    advisorId: 'ADV-01',
+    visitingAdvisorId: 'ADV-02',
+    status: 'active',
+    appliedCompanyId: 'COMP-01',
+    position: 'Full Stack Developer',
+    workflowStep: 4,
+    requestLetterNumber: 'อว 1713/ว.0142',
+    requestLetterDate: '11 พฤศจิกายน 2569',
+    requestLetterStatus: 'issued',
+    acceptanceLetterStatus: 'verified_advisor',
+    acceptanceFileUrl: '/docs/acceptance_67024964.pdf',
+    sendingLetterNumber: 'อว 1713/ว.0289',
+    sendingLetterDate: '18 พฤศจิกายน 2569',
+    sendingLetterStatus: 'issued'
+  },
+  {
+    id: '67023110',
+    nameTh: 'นางสาวณิชกานต์ ศรีสวัสดิ์',
+    nameEn: 'Miss Nichakan Srisawat',
+    faculty: 'คณะเทคโนโลยีสารสนเทศและการสื่อสาร',
+    major: 'วิศวกรรมซอฟต์แวร์ (SE)',
+    curriculum: 'หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิศวกรรมซอฟต์แวร์',
+    phone: '081-987-6543',
+    email: '67023110@up.ac.th',
+    avatarUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
+    advisorId: 'ADV-01',
+    visitingAdvisorId: 'ADV-02',
+    status: 'active',
+    appliedCompanyId: 'COMP-01',
+    position: 'Frontend Developer',
+    workflowStep: 3,
+    requestLetterNumber: 'อว 1713/ว.0143',
+    requestLetterDate: '11 พฤศจิกายน 2569',
+    requestLetterStatus: 'issued',
+    acceptanceLetterStatus: 'uploaded',
+    acceptanceFileUrl: '/docs/acceptance_67023110.pdf'
+  },
+  {
+    id: '67025812',
+    nameTh: 'นายพงศกร สันติสุข',
+    nameEn: 'Mr. Pongsakorn Santisuk',
+    faculty: 'คณะเทคโนโลยีสารสนเทศและการสื่อสาร',
+    major: 'วิทยาการคอมพิวเตอร์ (CS)',
+    curriculum: 'หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์',
+    phone: '082-456-7890',
+    email: '67025812@up.ac.th',
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+    advisorId: 'ADV-02',
+    visitingAdvisorId: 'ADV-02',
+    status: 'active',
+    appliedCompanyId: 'COMP-03',
+    position: 'DevOps & Cloud Engineer',
+    workflowStep: 4,
+    requestLetterNumber: 'อว 1713/ว.0150',
+    requestLetterDate: '12 พฤศจิกายน 2569',
+    requestLetterStatus: 'issued',
+    acceptanceLetterStatus: 'approved_admin',
+    acceptanceFileUrl: '/docs/acceptance_67025812.pdf',
+    sendingLetterNumber: 'อว 1713/ว.0295',
+    sendingLetterDate: '19 พฤศจิกายน 2569',
+    sendingLetterStatus: 'issued'
+  },
+  {
+    id: '67027789',
+    nameTh: 'นางสาวกานต์รวี เจริญผล',
+    nameEn: 'Miss Kanrawee Charoenphol',
+    faculty: 'คณะเทคโนโลยีสารสนเทศและการสื่อสาร',
+    major: 'คอมพิวเตอร์กราฟิกส์ (CG)',
+    curriculum: 'หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาคอมพิวเตอร์กราฟิกส์และมัลติมีเดีย',
+    phone: '086-777-8899',
+    email: '67027789@up.ac.th',
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    advisorId: 'ADV-03',
+    visitingAdvisorId: 'ADV-03',
+    status: 'active',
+    appliedCompanyId: 'COMP-04',
+    position: 'UI/UX Designer',
+    workflowStep: 2,
+    requestLetterStatus: 'pending_approval'
+  },
+  {
+    id: '67021122',
+    nameTh: 'นายวรเมธ แก้วมณี',
+    nameEn: 'Mr. Worameth Kaewmanee',
+    faculty: 'คณะเทคโนโลยีสารสนเทศและการสื่อสาร',
+    major: 'วิศวกรรมซอฟต์แวร์ (SE)',
+    curriculum: 'หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิศวกรรมซอฟต์แวร์',
+    phone: '083-999-1122',
+    email: '67021122@up.ac.th',
+    advisorId: 'ADV-01',
+    status: 'dropped', // Case dropped by advisor
+    workflowStep: 1
+  }
+];
+
+export const initialTrainings: TrainingActivity[] = [
+  {
+    id: 'TRN-01',
+    title: 'โครงการเตรียมความพร้อมสหกิจศึกษา: การเขียน Resume และเทคนิคการสัมภาษณ์งาน',
+    description: 'บรรยายโดยผู้เชี่ยวชาญจากบริษัทชั้นนำทางด้านเทคโนโลยี ถ่ายทอดการเตรียมตัวสัมภาษณ์และการวางตัวในที่ทำงาน',
+    date: '2026-11-20',
+    startTime: '09:00',
+    endTime: '12:00',
+    hours: 3,
+    maxSeats: 60,
+    reserveSeats: 10,
+    registeredCount: 58,
+    reserveCount: 5,
+    registrationOpenDaysBefore: 3,
+    status: 'open'
+  },
+  {
+    id: 'TRN-02',
+    title: 'การพัฒนาทักษะ Soft Skills และวัฒนธรรมการทำงานในองค์กรไอทียุคใหม่',
+    description: 'ฝึกปฏิบัติการทำงานร่วมกับผู้อื่น การบริหารเวลา และการสื่อสารอย่างมีประสิทธิภาพ',
+    date: '2026-11-24',
+    startTime: '13:00',
+    endTime: '16:00',
+    hours: 3,
+    maxSeats: 80,
+    reserveSeats: 15,
+    registeredCount: 80,
+    reserveCount: 12,
+    registrationOpenDaysBefore: 3,
+    status: 'closed'
+  },
+  {
+    id: 'TRN-03',
+    title: 'ระเบียบปฏิบัติและมาตรฐานความปลอดภัยทางข้อมูล (PDPA & Cyber Security in Workplace)',
+    description: 'ข้อควรระวังเกี่ยวกับการรักษาความลับของสถานประกอบการและกฎหมายที่เกี่ยวข้อง',
+    date: '2026-12-02',
+    startTime: '09:00',
+    endTime: '15:00',
+    hours: 6,
+    maxSeats: 100,
+    reserveSeats: 20,
+    registeredCount: 42,
+    reserveCount: 0,
+    registrationOpenDaysBefore: 3,
+    status: 'upcoming'
+  }
+];
+
+export const systemSettingsDefault = {
+  academicYear: '2569',
+  semester: '2',
+  defaultStartDate: '2026-12-02',
+  defaultEndDate: '2027-03-19',
+  requestLetterPrefix: 'อว 1713/ว.',
+  sendingLetterPrefix: 'อว 1713/ว.',
+  deanName: 'ผศ.ดร. ญาณกร ชุ่มชื่น',
+  deanTitle: 'คณบดีคณะเทคโนโลยีสารสนเทศและการสื่อสาร มหาวิทยาลัยพะเยา',
+  unlockedMajors: ['SE', 'CS', 'CG', 'IT']
+};
